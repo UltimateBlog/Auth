@@ -2,17 +2,18 @@ from sqlalchemy.orm import declarative_base
 
 from sqlalchemy import Column, Integer, String, BigInteger, Boolean
 
-from db.cruds import BaseCRUD
+from db.cruds import CRUD
 from utils.date_time import current_timestamp
 
 Base = declarative_base()
 
 
-class Blogger(Base, BaseCRUD):
+class Blogger(Base, CRUD):
     __tablename__ = "blooger"
 
     id = Column(Integer, primary_key=True)
     username = Column(String, unique=True, nullable=True)
+    password = Column(String(250))
     firstname = Column(String(30))
     lastname = Column(String(30))
     email = Column(String(150))
@@ -21,4 +22,4 @@ class Blogger(Base, BaseCRUD):
     active = Column(Boolean, default=True)
 
     def __repr__(self):
-        return f"Blogger(id={self.id!r}, firstname='{self.firstname!r}, lastname='{self.lastname!r})"
+        return f"Blogger(id={self.id!r}, firstname={self.firstname!r}, lastname={self.lastname!r})"
