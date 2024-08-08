@@ -7,6 +7,8 @@ from utils.date_time import current_timestamp
 
 Base = declarative_base()
 
+__all__ = ["Blogger"]
+
 
 class Blogger(Base, CRUD):
     __tablename__ = "blooger"
