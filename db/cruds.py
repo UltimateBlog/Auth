@@ -109,7 +109,7 @@ class CRUD:
         with Session() as session:
             obj = cls.get(pk, session)
             if obj:
-                session.delete()
+                session.delete(obj)
                 session.commit()
 
     @classmethod
